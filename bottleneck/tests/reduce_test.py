@@ -222,4 +222,4 @@ def test_nanvar_issue60():
 
 def test_possible_nansum_issue():
     x = np.random.randn(10, 20)
-    assert_equal(x[:, 9:10].sum(), bn.nansum(x[:, 9:10]))
+    assert_array_almost_equal(x[:, 9:10].sum(), bn.nansum(x[:, 9:10]))
