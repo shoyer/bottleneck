@@ -218,3 +218,8 @@ def test_nanvar_issue60():
     with np.errstate(invalid='ignore'):
         s = bn.slow.nanvar([[1, np.nan], [np.nan, 1]], axis=0, ddof=1)
     assert_equal(f, s, err_msg="issue #60 regression")
+
+
+def test_possible_nansum_issue():
+    x = np.random.randn(10, 20)
+    assert_equal(x[:, 9:10].sum(), bn.nansum(x[:, 9:10]))
